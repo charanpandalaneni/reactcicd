@@ -31,18 +31,18 @@ jobs:
     - run: zip -r build.zip build
     - run: npm test
     
-  # release:
-  #   needs: build
-  #   runs-on: ubuntu-latest
+  release:
+    needs: build
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Create Release
-      uses: softprops/action-gh-release@v1
-      with:
-        files: build.zip  # Replace with the actual path to your build artifacts
-        tag_name: test3
-      env:
-        GITHUB_TOKEN: ${{ secrets.REACTCICD }}
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build.zip  # Replace with the actual path to your build artifacts
+          tag_name: test4
+        env:
+          GITHUB_TOKEN: ${{ secrets.REACTCICD }}
