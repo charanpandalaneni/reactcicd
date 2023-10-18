@@ -30,18 +30,18 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     
-  release:
-    needs: build
-    runs-on: ubuntu-latest
+  # release:
+  #   needs: build
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: build/*  # Replace with the actual path to your build artifacts
-          tag_name: test
-        env:
-          GITHUB_TOKEN: ${{ secrets.REACTCICD }}
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: build/*  # Replace with the actual path to your build artifacts
+        tag_name: test2
+      env:
+        GITHUB_TOKEN: ${{ secrets.REACTCICD }}
